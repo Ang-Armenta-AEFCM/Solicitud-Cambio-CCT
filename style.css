@@ -1,0 +1,1 @@
+html,body,#app,#map{height:100%;margin:0}#app{display:flex}#sidebar{width:320px;padding:10px;background:#fff}#map{flex:1}
