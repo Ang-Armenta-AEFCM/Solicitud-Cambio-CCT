@@ -1,4 +1,81 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Visor Cambio CCT</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"><link rel="stylesheet" href="style.css"></head>
-<body><div id="app"><div id="sidebar"><h2>Visor Cambio CCT</h2><div id="info">Proyecto base generado.</div></div><div id="map"></div></div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14324a">
+  <title>Visor institucional de cambio de CCT</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.2/Control.FullScreen.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="app">
+  <aside id="sidebar" class="sidebar" aria-label="Panel de información">
+    <header class="brand">
+      <div class="brand-mark">CCT</div>
+      <div><p class="eyebrow">VISOR INSTITUCIONAL</p><h1>Cambio de CCT</h1></div>
+      <button id="collapseBtn" class="icon-btn collapse" title="Ocultar panel" aria-label="Ocultar panel">‹</button>
+    </header>
+
+    <section class="search-section">
+      <label for="searchInput">Buscar solicitud</label>
+      <div class="search-wrap">
+        <input id="searchInput" autocomplete="off" placeholder="ID, CCT o nombre de escuela…">
+        <button id="clearSearch" class="clear-search" title="Limpiar">×</button>
+        <div id="suggestions" class="suggestions" role="listbox"></div>
+      </div>
+    </section>
+
+    <section class="nav-row">
+      <button id="prevBtn" class="nav-btn">◀ Anterior</button>
+      <strong id="positionLabel">—</strong>
+      <button id="nextBtn" class="nav-btn">Siguiente ▶</button>
+    </section>
+
+    <section id="resultCard" class="result-card neutral">
+      <span>RESULTADO</span>
+      <strong id="classification">Cargando datos…</strong>
+      <small id="distanceText">—</small>
+    </section>
+
+    <section class="details-card">
+      <h2>Datos de la solicitud</h2>
+      <dl id="details"></dl>
+    </section>
+
+    <section class="tools-card">
+      <h2>Visualización</h2>
+      <div class="toggle-grid">
+        <label class="switch-row"><input id="toggleBuffers" type="checkbox" checked><span>Buffers 2 y 3 km</span></label>
+        <label class="switch-row"><input id="toggleLine" type="checkbox" checked><span>Línea de distancia</span></label>
+      </div>
+      <div class="action-grid">
+        <button id="homeBtn">⌂ Inicio</button><button id="centerBtn">◎ Centrar</button>
+        <button id="pngBtn">⇩ PNG</button><button id="pdfBtn">⇩ PDF</button>
+        <button id="printBtn">⎙ Imprimir</button>
+      </div>
+    </section>
+
+    <footer>La distancia corresponde a la distancia geodésica calculada mediante la fórmula de Haversine.</footer>
+  </aside>
+
+  <main class="map-shell">
+    <button id="openPanelBtn" class="open-panel" aria-label="Mostrar panel">☰</button>
+    <div id="map" aria-label="Mapa de solicitudes de cambio de CCT"></div>
+    <div id="loading" class="loading"><div class="spinner"></div><span>Cargando información…</span></div>
+    <div id="notice" class="notice" hidden></div>
+    <div id="cursorCoords" class="cursor-coords">Lat: — &nbsp; Lon: —</div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/3.0.2/Control.FullScreen.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
