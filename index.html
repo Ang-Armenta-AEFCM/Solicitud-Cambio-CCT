@@ -2,13 +2,13 @@
 <header><button id='menu'>☰</button><div><b>Visor institucional de cambio de CCT</b><small>Análisis de procedencia y primera opción</small></div><button id='full'>⛶</button></header>
 <div class='app'><aside id='side'><label>Buscar alumno o plantel</label><input id='q' placeholder='ID, CCT o nombre'><div id='results'></div><div class='mode-tabs'>
 <button id='modeIndividual' class='active'>Alumno individual</button>
-<button id='modeSpider'>Distancia por CCT</button>
+<button id='modeSpider'>Vista por CCT</button>
 <button id='modeLists'>Listas por distancia</button>
 </div>
 <div id='individualPanel'>
 <div class='nav'><button id='prev'>◀ Anterior</button><b id='count'>—</b><button id='next'>Siguiente ▶</button></div><div id='result' class='result'><small>RESULTADO</small><strong id='class'>—</strong><span id='dist'>—</span></div><section><h3>Datos de la solicitud</h3><div id='info'></div></section></div>
 <div id='spiderPanel' class='mode-panel hidden'>
-<section><h3>Telaraña por escuela de primera opción</h3>
+<section><h3>Vista por CCT por escuela de primera opción</h3>
 <label>Seleccione la escuela destino</label>
 <select id='destinationSelect'></select>
 <div id='spiderSummary' class='summary-box'></div>
@@ -16,14 +16,14 @@
 </section>
 </div>
 <div id='listsPanel' class='mode-panel hidden'>
-<section><h3>Solicitudes que rebasan 2 km</h3>
+<section><h3>Tabla de solicitudes que rebasan 2 km</h3>
 <div id='over2Summary' class='summary-box'></div>
-<div id='over2List' class='distance-list'></div>
+<div class='table-scroll'><table class='distance-table'><thead><tr><th>ID</th><th>Procedencia</th><th>Primera opción</th><th>Distancia</th></tr></thead><tbody id='over2Table'></tbody></table></div>
 </section>
-<section><h3>Solicitudes que rebasan 3 km</h3>
+<section><h3>Tabla de solicitudes que rebasan 3 km</h3>
 <div id='over3Summary' class='summary-box danger'></div>
-<div id='over3List' class='distance-list'></div>
+<div class='table-scroll'><table class='distance-table'><thead><tr><th>ID</th><th>Procedencia</th><th>Primera opción</th><th>Distancia</th></tr></thead><tbody id='over3Table'></tbody></table></div>
 </section>
 </div>
-<section><h3>Herramientas</h3><label><input id='buffers' type='checkbox' checked> Mostrar buffers</label><label><input id='line' type='checkbox' checked> Mostrar línea</label><select id='base'><option value='osm'>OpenStreetMap</option><option value='sat'>Satélite</option><option value='carto'>Carto Light</option></select><div class='tools'><button id='home'>Inicio</button><button id='center'>Centrar</button><button id='png'>PNG</button><button id='pdf'>PDF</button><button onclick='print()'>Imprimir</button></div></section><div id='warn'></div><p class='note'>La distancia corresponde a la distancia geodésica calculada mediante la fórmula de Haversine.</p></aside><main><div id='map'></div><div id='coords'>Lat: — · Lon: —</div><div class='legend'><b>Leyenda</b><span>🔵 Procedencia</span><span>🔴 Primera opción</span><span>🟢 Radio 2 km</span><span>🟠 Radio 3 km</span></div></main></div>
-<script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet-image/0.4.0/leaflet-image.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js'></script><script src='script.js'></script></body></html>
+<section><h3>Herramientas</h3><label><input id='buffers' type='checkbox' checked> Mostrar buffers</label><label><input id='line' type='checkbox' checked> Mostrar línea</label><select id='base'><option value='osm'>OpenStreetMap</option><option value='sat'>Satélite</option><option value='carto'>Carto Light</option></select><div class='tools'><button id='home'>Inicio</button><button id='center'>Centrar</button></div></section><div id='warn'></div><p class='note'>La distancia corresponde a la distancia geodésica calculada mediante la fórmula de Haversine.</p></aside><main><div id='map'></div><div id='coords'>Lat: — · Lon: —</div><div class='legend'><b>Leyenda</b><span>🔵 Procedencia</span><span>🔴 Primera opción</span><span>🟢 Radio 2 km</span><span>🟠 Radio 3 km</span></div></main></div>
+<script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script><script src='script.js'></script></body></html>
